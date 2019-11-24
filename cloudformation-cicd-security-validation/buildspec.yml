@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+        ruby: 2.6    
+    commands:
+    - pip3 install awscli --upgrade --quiet
+    - pip3 install cfn-lint --quiet
+    - aws --version              
+    - yum install jq git -y -q
+    - gem install cfn-nag
+    - cfn_nag_rules # Show all cfn_nag_rules that will be used in the scan
+  build:
+    commands:
+    - scriptToExecute=`find $(pwd)/ \( -name "CfnTemplateValidation.sh" \) `
+    - chmod +x "$scriptToExecute"
+    - bash "$scriptToExecute" --full_scan no --codecommit-repository_name NAME-OF-YOUR-CODECOMMIT-REPO --codebuild_project_name NAME-OF-CODEBUILD-PROJECT
+artifacts:
+  files: '**/*'
