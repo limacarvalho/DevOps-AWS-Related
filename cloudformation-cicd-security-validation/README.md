@@ -28,7 +28,7 @@ Taking into consideration all the requirements we decided to use a Codebuild for
 I use Codecommit as my Codepipeline source, but my Bash script also supports any git-like repo, as long as you choose to pass the .git files to Codebuild. By getting the list of the CF files from the last commit we can then run cfn-nag agaist thiose files only.
 
 
-![CodebuildSettings](../assets/images/codebuild-settings.jpg "eg. Codebuild settings")
+![CodebuildSettings](../cloudformation-cicd-security-validation/images/codebuild-settings.jpg "eg. Codebuild settings")
 
 
 **In a nutshell:**
@@ -43,18 +43,18 @@ I use Codecommit as my Codepipeline source, but my Bash script also supports any
 ## Example of successful/validated build:
 
 
-![CodebuildLogInfo](../assets/images/codebuild-loginfo.jpg "eg. Information of latest git commit before starting the validation")
+![CodebuildLogInfo](../cloudformation-cicd-security-validation/images/codebuild-loginfo.jpg "eg. Information of latest git commit before starting the validation")
 
 
 
-![CodebuildSuccess](../assets/images/codebuild-success.jpg "eg. Output of successful validation")
+![CodebuildSuccess](../cloudformation-cicd-security-validation/images/codebuild-success.jpg "eg. Output of successful validation")
 
 
 ## Example of a failed build job:
 
 
 
-![CodebuildFailure](../assets/images/codebuild-failure.jpg "eg. Output of failed validation")
+![CodebuildFailure](../cloudformation-cicd-security-validation/images/codebuild-failure.jpg "eg. Output of failed validation")
 
 
 ---
